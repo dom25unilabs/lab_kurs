@@ -1,8 +1,6 @@
 ﻿#include <iostream>
-#include <iomanip>
 #include <fstream>
 #include <string>
-#include <format>
 #include <io.h>
 #include <fcntl.h>
 static void fin_mat(std::ifstream& fin, int n, double* mat)
@@ -16,13 +14,15 @@ static void fin_mat(std::ifstream& fin, int n, double* mat)
 		}
 	}
 }
-static void cin_mat(int n, double* mat) {
+static void cin_mat(int n, double* mat)
+{
 	for (int i = 0; i < n * n; i++)
 	{
 		std::wcin >> mat[i];
 	}
 }
-static void fout_mat(std::ofstream& fout, int n, double* mat) {
+static void fout_mat(std::ofstream& fout, int n, double* mat)
+{
 	for (int i = 0; i < n; i++)
 	{
 		for (int j = 0; j < n - 1; j++)
@@ -32,7 +32,8 @@ static void fout_mat(std::ofstream& fout, int n, double* mat) {
 		fout << mat[(i + 1) * n - 1] << "\n";
 	}
 }
-static void cout_mat(int n, double* mat) {
+static void cout_mat(int n, double* mat)
+{
 	for (int i = 0; i < n; i++)
 	{
 		for (int j = 0; j < n - 1; j++)
@@ -42,7 +43,8 @@ static void cout_mat(int n, double* mat) {
 		std::wcout << mat[(i + 1) * n - 1] << "\n";
 	}
 }
-int wmain(int argc, wchar_t* argv[]) {
+int wmain(int argc, wchar_t* argv[])
+{
 	if (!(_setmode(_fileno(stdout), _O_U8TEXT) && _setmode(_fileno(stdin), _O_U8TEXT) && _setmode(_fileno(stderr), _O_U8TEXT)))
 		return 1;
 	int n, cmd = 7;
@@ -204,7 +206,7 @@ int wmain(int argc, wchar_t* argv[]) {
 		}
 		case 7:
 		{
-			std::wcout << L"Список команд:\n1 - ввод матриц A, B и C из консоли;\n2 - ввод матриц А, В и С из файла;\n3 - редактирование элементов матриц A, B и C;\n4 - Скопировать в матрицу С столбцы матриц А или В в зависимости от того, какой из столбцов содержит большее количество нулей;\n5 - вывод матриц в консоль;\n6 - вывод матриц в файл;\n7 - вывод списка команд\n0 - выход из программы.\n";
+			std::wcout << L"Список команд:\n1 - ввод матриц A, B и C из консоли;\n2 - ввод матриц А, В и С из файла;\n3 - редактирование элементов матриц A, B и C;\n4 - скопировать в матрицу С столбцы матриц А или В в зависимости от того, какой из столбцов содержит большее количество нулей;\n5 - вывод матриц в консоль;\n6 - вывод матриц в файл;\n7 - вывод списка команд;\n0 - выход из программы.\n";
 			cmd = 1;
 			break;
 		}
